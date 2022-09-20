@@ -49,22 +49,22 @@ class Controller {
 	StudentEx removeStudentEx (int index) {
 		
 		StudentEx del_st = list[index];
-		if (stdCnt == 1) {
-			list = null;
+		if (stdCnt == 1) { //학생수가 한명일 때 
+			list = null; // 그냥 널처리
 		}
-		else if (stdCnt > 1) {
-			StudentEx [] temp = list;
-			list = new StudentEx[stdCnt -1];
+		else if (stdCnt > 1) { //학생수가 한명보다 많을 때
+			StudentEx [] temp = list; // 학생들 모두 임시저장
+			list = new StudentEx[stdCnt -1]; // 탈퇴한 한명을 제외한 사이즈의 배열로 다시 셋팅
 			for (int i = 0; i < index; i++) {
-				list[i] = temp[i];
+				list[i] = temp[i]; // 탈퇴한 인덱스 전 객체들 배열에 넣어주기
 			}
 			for (int i = index; i < stdCnt -1; i++) {
-				list[i] = temp[i + 1];
+				list[i] = temp[i + 1]; // 탈퇴한 인덱스 후 객체들 배열에 넣어주기
 			}
-			temp = null;
+			temp = null; // 템프 비우기
 		}
-		stdCnt--;
-		
+		stdCnt--; // 학생수 다운
+		 
 		return del_st;  // 굳이 return을 안해주고 데이터만 삭제해주어도 되는데
 						// 타 언어의 pop()메서드와 같이 삭제하는 데이터를 return하는 방식처럼 구현해본 예시
 		
@@ -161,34 +161,34 @@ public class ClassArrayEx09_연습 {
 			
 			if (sel == 1) {
 				
-				StudentEx temp = new StudentEx();
+				StudentEx temp = new StudentEx(); // 객체 생성.
 				System.out.println("[가입] id 를 입력하세요 >>> ");
 				temp.id = scan.next();			
-				int check =  controller.checkId(temp);
+				int check =  controller.checkId(temp); // 가입할 id 가 중복되는게 있는지 확인 메서드
 				
-				if (check == -1) {
+				if (check == -1) { // 중복되는게 없을 때
 					System.out.println("[가입] pw 를 입력하세요 >>> ");
-					temp.pw = scan.next();
+					temp.pw = scan.next(); 
 					controller.addStudentEx(temp);	
 					System.out.println(temp.id + "님 가입을 환영합니다.");
 				}
-				else {
-					System.out.println("중복아이디 입니다.");
+				else { // 중복 아이디일 때
+					System.out.println("중복아이디 입니다."); 
 				}	
 				
 			}
 			else if (sel == 2) {
 				
-				controller.printStudentEx();
-				StudentEx temp = new StudentEx();
+				controller.printStudentEx(); // 학생들 리스트 프린트
+				StudentEx temp = new StudentEx(); // 학생 객체 생성
 				System.out.println("[탈퇴] id 를 입력하세요 >>> ");
 				temp.id = scan.next();	
-				int check = controller.checkId(temp);
+				int check = controller.checkId(temp); // 같은 아이디 있는지 확인 메서드
 				
-				if (check == -1) {
+				if (check == -1) { // 존재하지 않음
 					System.out.println("없는 아이디입니다.");
 				}
-				else {
+				else { 
 					StudentEx del_st = controller.removeStudentEx(check);
 					System.out.println(del_st.id + "님 탈퇴 되었습니다.");
 				}

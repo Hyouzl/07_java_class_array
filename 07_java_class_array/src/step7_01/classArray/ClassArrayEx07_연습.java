@@ -24,17 +24,17 @@ public class ClassArrayEx07_연습 {
 
 		Student[] studentList = new Student[3]; 
 		
-		studentList[0] = new Student(); 
+		studentList[0] = new Student(); //객체 배열(객체를 넣을 수 있는 배열) 의 첫번째 객체 생성.
 		studentList[0].name = "학생0";
-		studentList[0].subjects = new Subject[3]; // 학생 객체 안 필드의 서브젝트 배열생성
+		studentList[0].subjects = new Subject[3]; // 첫번째 객체의 서브젝트 객체 배열 생성
 		
 		for (int i = 0; i < 3; i++) { 
-			studentList[0].subjects[i] = new Subject();
+			studentList[0].subjects[i] = new Subject(); // 서브젝트 객체 생성
 			studentList[0].subjects[i].name = "학생0 과목" + i;
 			studentList[0].subjects[i].score = 100;
 		}
 		
-		studentList[1] = new Student();
+		studentList[1] = new Student(); // 두번째 객체 생성
 		studentList[1].name = "학생1";
 		studentList[1].subjects = new Subject[2];
 		studentList[1].subjects[0] = new Subject();

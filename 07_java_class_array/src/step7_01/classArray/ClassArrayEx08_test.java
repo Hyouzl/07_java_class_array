@@ -18,6 +18,8 @@ class Student8_test {
 }
 
 
+//객체생성 주의 !!
+
 public class ClassArrayEx08_test {
 	
 	public static void main(String[] args) {
@@ -44,8 +46,6 @@ public class ClassArrayEx08_test {
 				}
 				System.out.println();
 			}
-		
-		
 		
 			System.out.println("[1]학생 추가하기");		// 이름 입력받아 추가
 			System.out.println("[2]과목 추가하기");		// 이름과 과목 입력받아 추가
